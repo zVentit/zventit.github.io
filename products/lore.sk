@@ -1,0 +1,34 @@
+#Credit Ventit#8880
+
+command /addlore <text>:
+    permission: op
+    trigger:
+        if arg-1 is "$blank":
+            set {_l} to ""
+        else:
+            set {_l} to arg-1
+        if line 1 of lore of held item of player is set:
+            loop size of lore of tool times:
+                add 1 to {_j}
+            set line {_j} + 1 of lore of tool to "&f%formatted {_l}%"
+        else:
+            set held item of player to held item of player with lore "&f%formatted {_l}%"
+command /setlore <int> <text>:
+    permission: op
+    trigger:
+        if arg-2 is "$blank":
+            set {_l} to ""
+        else if arg-2 is "$clear":
+            clear line arg-1 of lore of tool
+        else:
+            set {_l} to arg-2
+        if line 1 of lore of tool is not set:
+            loop arg-1 times:
+                set {_d} to loop-value + 1
+                set line {_d} of lore of tool to ""
+
+        set line arg-1 of lore of tool to "&f%formatted {_l}%"
+command /removelore:
+    permission: op
+    trigger:
+        clear lore of tool

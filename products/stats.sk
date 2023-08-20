@@ -1,0 +1,104 @@
+#Credit Ventit#8880
+
+options:
+    prefix: &2&l Stats &7
+
+
+on load:
+    add "kills" to {statstype::*}
+    add "deaths" to {statstype::*}
+    add "streak" to {statstype::*}
+    add "beststreak" to {statstype::*}
+    add "kd" to {statstype::*}
+    loop all players:
+        if {stats::%loop-player%} is not set:
+            set {stats::%loop-player%} to loop-player
+            set {stats::%loop-player%::deaths} to 0
+            set {stats::%loop-player%::kills} to 0
+            set {stats::%loop-player%::streak} to 0
+            set {stats::%loop-player%::beststreak} to 0
+            set {stats::%loop-player%::kd} to "Infinite"
+
+on inventory click:
+    if name of event-inventory contains "{@prefix}":
+        cancel event
+command /stats [<offlineplayer>]:
+    trigger:
+        if arg-1 is set:
+            statsgui(player, arg-1)
+        else:
+            statsgui(player, player)
+
+function statsgui(s: player, p: offlineplayer):
+    set {_sgui} to a new chest inventory with 3 rows named "%{_p}%'s{@prefix}"
+    set {_ph} to 0
+    loop 27 times:
+        set slot {_ph} of {_sgui} to gray stained glass pane named " "
+        add 1 to {_ph}
+    set slot 11 of {_sgui} to diamond sword named "&4&lKills: %{stats::%{_p}%::kills}%"
+    set slot 15 of {_sgui} to iron sword named "&4&lStreak: %{stats::%{_p}%::streak}%"
+    if {stats::%{_p}%::kills} >= 1:
+        if {stats::%{_p}%::deaths} >= 1:
+            set {stats::%{_p}%::kd} to {stats::%{_p}%::kills} / {stats::%{_p}%::deaths}
+
+    else:
+        set {stats::%{_p}%::kd} to "Infinite"
+    set slot 13 of {_sgui} to player head named "&4&lK/D: %{stats::%{_p}%::kd}%"
+    set slot 14 of {_sgui} to golden helmet named "&4&lBestStreak: %{stats::%{_p}%::beststreak}%"
+    set slot 12 of {_sgui} to skeleton skull named "&4&lDeaths: %{stats::%{_p}%::deaths}%"
+    open {_sgui} to {_s}
+
+command /wipestat <offlineplayer> <text>:
+    permission: stats.admin
+    trigger:
+        if arg-2 is "all":
+            set {stats::%arg-1%::deaths} to 0
+            set {stats::%arg-1%::kills} to 0
+            set {stats::%arg-1%::streak} to 0
+            set {stats::%arg-1%::beststreak} to 0
+            set {stats::%arg-1%::kd} to "Infinite"
+            message "{@prefix}Successfully wiped %arg-1%'s stats"
+            stop
+        if {statstype::*} contains arg-2:
+            if arg-2 is "kd":
+                message "{@prefix}You cannot change the K/D of a player."
+                stop
+            set {stats::%arg-1%::%arg-2%} to 0
+
+        else if {statstype::*} does not contain arg-2:
+            message "{@prefix}You cannot change that. You can only change the Kills, Deaths, Streak or Beststreak of the player."
+            stop
+command /setstat <offlineplayer> <text> <int>:
+    permission: stats.admin
+    trigger:
+        if {statstype::*} contains arg-2:
+            if arg-2 is "kd":
+                message "{@prefix}You cannot change the K/D of a player."
+                stop
+            set {stats::%arg-1%::%arg-2%} to arg-3
+            message "{@prefix}Successfully set %arg-1%'s %arg-2% to %arg-3%"
+        else if {statstype::*} does not contain arg-2:
+            message "{@prefix}You cannot change that. You can only change the Kills, Deaths, Streak or Beststreak of the player."
+            stop
+
+command /addstat <offlineplayer> <text> <int>:
+    permission: stats.admin
+    trigger:
+        if {statstype::*} contains arg-2:
+            if arg-2 is "kd":
+                message "{@prefix}You cannot change the K/D of a player."
+                stop
+            add arg-3 to {stats::%arg-1%::%arg-2%}
+            message "{@prefix}Successfully added %arg-3% to %arg-1%'s %arg-2%"
+        else if {statstype::*} does not contain arg-2:
+            message "{@prefix}You cannot change that. You can only change the Kills, Deaths, Streak or Beststreak of the player."
+            stop
+
+on death of player:
+    if attacker is player:
+        add 1 to {stats::%attacker%::kills}
+        add 1 to {stats::%attacker%::streak}
+        if {stats::%attacker%::streak} >= {stats::%attacker%::beststreak}:
+            set {stats::%attacker%::beststreak} to {stats::%attacker%::streak}
+    add 1 to {stats::%victim%::deaths}
+    set {stats::%victim%::streak} to 0
