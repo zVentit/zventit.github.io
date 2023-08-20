@@ -1,0 +1,78 @@
+<html>
+	<head>
+		<title>Product | Ventit Projects</title>
+		<meta charset="UTF=8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
+	</head>
+	<body>
+		
+		<header class="middle">
+			<a href="/">
+				<img
+					width="500"
+					src="img/weblogo.png"
+					alt="Logo Ventit Projects"
+				/>
+			</a>
+		</header>
+		<nav>
+			<ul class="middle">
+				<li><a href="/">Home</a></li>
+				<li><a href="/catalog.html">Catalog</a></li>
+				<li><a href="/packages.html">Packages</a></li>
+				<li><a href="/portfolio.html">Portfolio</a></li>
+				<li><a href="/assignments.html">Assignments</a></li>
+				<li><a href="/contact.html">Contact</a></li>
+				<li><a href="/policies.html">Policies</a></li>
+			</ul>
+		</nav>
+		<div class="slider">
+            <span id="slide-1"></span>
+            <span id="slide-2"></span>
+            <span id="slide-3"></span>
+            <div class="image-container">
+              <img src="img/product1.png" class="slide" width="500" height="300" />
+              <img src="img/product2.png" class="slide" width="500" height="300" />
+              <img src="img/product3.png" class="slide" width="500" height="300" />
+            </div>
+            <div class="buttons">
+              <a href="#slide-1"></a>
+              <a href="#slide-2"></a>
+              <a href="#slide-3"></a>
+            </div>
+          </div>
+		<div class="buybutton">
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post"> <!-- Identify your business so that you can collect the payments. --> <input type="hidden" name="business" value="ventitonline@gmail.com"><!-- Specify a Buy Now button. --> <input type="hidden" name="cmd" value="_xclick"> <!-- Specify details about the item that buyers will purchase. --> <input type="hidden" name="item_name" value="Product"> <input type="hidden" name="amount" value="3.00"> <input type="hidden" name="currency_code" value="EUR"> <!-- Display the payment button. --> <input type="image" name="submit" border="0" src="img/purchase.png" alt="Purchase">
+		</form>
+		</div>
+		<div class="addcartbutton">
+		<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">    <!-- Identify your business so that you can collect the payments. -->
+		  <input type="hidden" name="business" value="ventitonline@gmail.com">
+	  
+		  <!-- Specify a PayPal Shopping Cart Add to Cart button. -->
+		  <input type="hidden" name="cmd" value="_cart">
+		  <input type="hidden" name="add" value="1">
+	  
+		  <!-- Specify details about the item that buyers will purchase. -->
+		  <input type="hidden" name="item_name" value="Product">
+		  <input type="hidden" name="amount" value="3.00">
+		  <input type="hidden" name="currency_code" value="EUR">
+	  
+		  <!-- Continue shopping on the web page-->
+		  <input type="hidden" name="shopping_url" value="https://website.com/">
+	  
+		  <!-- Display the payment button. -->
+		  
+		  <input type="image" name="submit"
+			  src="img/add2cart.png"
+			  alt="Add to Cart">
+			</div>
+	  </form>
+		
+		<footer></footer>
+	</body>
+</html>
