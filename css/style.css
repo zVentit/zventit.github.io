@@ -1,0 +1,497 @@
+
+
+body {
+
+	padding: 0;
+
+	padding-left: 10;
+
+	margin: 0;
+
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-sherif;
+
+	background-color: lightgray;
+
+	background-image: url('img/background.png');
+
+	background-repeat:round;
+
+}
+
+header {
+
+	margin-top: 24px;
+
+	margin-bottom: 24px;
+
+}
+
+
+
+nav ul {
+
+	list-style: none;
+
+}
+
+nav ul li a:hover {
+
+    color:white;
+
+    transition: 0.6s;
+
+
+
+}
+
+nav ul li a{
+
+    text-decoration: none;
+
+    color: black;
+
+    padding: 5px;
+
+	transition: 0.6s;
+
+}
+
+div h1 {
+
+	margin-bottom: 10px;
+
+	font-size: 60;
+
+	font-weight: 2;
+
+	font-style: italic;
+
+	text-decoration: overline;
+
+	text-decoration-thickness: 2px;
+
+
+
+}
+
+div h4{
+
+	padding: 1px;
+
+	margin-bottom: 0px;
+
+	margin-top: 0px;
+
+	font-weight: 500;
+
+	text-decoration: underline;
+
+}
+
+
+
+div li a img{
+
+	border-width: 20;
+
+	border-style: groove;
+
+	border-color: rgb(129, 129, 129);
+
+	border-radius: 20px;
+
+	background-color: rgb(150, 150, 150);
+
+	padding: 20px;
+
+	
+
+
+
+}
+
+div li a{
+
+	color: green;
+
+	text-decoration: none;
+
+	
+
+}
+
+div li {
+
+	font-weight: 500;
+
+	list-style: none;
+
+	font-size: 50;
+
+	color: red;
+
+	padding: 5px;
+
+	padding-top: 40px;
+
+	
+
+	
+
+	
+
+}
+
+
+
+nav ul li{
+
+	font-weight: 600;
+
+	color: darkgreen;
+
+	font-size: 25px;
+
+	
+
+}
+
+
+
+div h2{
+
+	font-weight: 600;
+
+	padding: 5px;
+
+	border-style: groove;
+
+	border-color: gray;
+
+	border-width: 15px;
+
+}
+
+div h2 a{
+
+	color: darkgreen;
+
+}
+
+dl dd h2 {
+
+	color: black;
+
+}
+
+dl dt a img {
+
+	border-width: 20;
+
+	border-style: groove;
+
+	border-color: rgb(17, 17, 17);
+
+	border-radius: 20px;
+
+	background-color: rgb(26, 26, 26);
+
+}
+
+
+
+.productname {
+
+	float: left;
+
+	margin-top: 5px;
+
+	margin-left: -30px;
+
+}
+
+.clientname {
+
+	padding: 2px;
+
+	font-size: 20px;
+
+	margin-top: 5px;
+
+	margin-left: 2px;
+
+	border-style:solid;
+
+	border-color:gray;
+
+	border-width: 2px;
+
+	border-radius: 500px;
+
+	background-color: gray;
+
+}
+
+.assignment {
+
+	float: left;
+
+	margin: 10px 20px 20px 0;
+
+}
+
+.product {
+
+	float: left;
+
+	margin: 10px 20px 20px 0;
+
+}
+
+.middle {
+
+	display: flex;
+
+	justify-content: center;
+
+	align-items: center;
+
+}
+
+.buybutton {
+
+	display: flex;
+
+	justify-content: center;
+
+	align-items: center;
+
+	margin-top: 50px;
+
+	border-radius: 20px;
+
+	border-width: 1px;
+
+	padding-left: 50px;
+
+	padding-right: 50px;
+
+	font-size: 50px;
+
+	color: white;
+
+	font-family:initial;
+
+}
+
+.addcartbutton {
+
+	display: flex;
+
+	justify-content: center;
+
+	align-items: center;
+
+	margin-top: -0px;
+
+	border-radius: 20px;
+
+	border-width: 1px;
+
+	padding-left: 50px;
+
+	padding-right: 50px;
+
+	font-size: 50px;
+
+	color: white;
+
+	font-family:initial;
+
+}
+
+.prize {
+
+	padding: 2px;
+
+	font-size: 20px;
+
+	margin-top: 5px;
+
+	margin-left: 2px;
+
+	border-style:solid;
+
+	border-color:gray;
+
+	border-width: 2px;
+
+	border-radius: 500px;
+
+	background-color: gray;
+
+}
+
+
+
+
+
+
+
+.slider {
+
+	width: 500px;
+
+	height: 300px;
+
+	margin-left: auto;
+
+	margin-right: auto;
+
+	margin-top: 0px;
+
+	text-align: center;
+
+	overflow: hidden;
+
+	border-radius: 50px;
+
+	border-color: black;
+
+	border-width: 10px;
+
+	border-style:solid;
+
+	
+
+  }
+
+  .image-container {
+
+	width: 5000px;
+
+	height: 300px;
+
+	clear: both;
+
+	position: relative;
+
+	-webkit-transition: left 2s;
+
+	-moz-transition: left 2s;
+
+	-o-transition: left 2s;
+
+	transition: left 2s;
+
+
+
+	
+
+	
+
+  }
+
+  .slide {
+
+	float: left;
+
+	margin: 0px;
+
+	padding: 0px;
+
+	position: relative;
+
+	
+
+	
+
+  }
+
+  #slide-1:target ~ .image-container {
+
+	left: 0px;
+
+	
+
+  }
+
+  #slide-2:target ~ .image-container {
+
+	left: -500px;
+
+  }
+
+  #slide-3:target ~ .image-container {
+
+	left: -1000px;
+
+  }
+
+  #slide-4:target ~ .image-container {
+
+	left: -1500px;
+
+  }
+
+  #slide-5:target ~ .image-container {
+
+	left: -2000px;
+
+  }
+
+  #slide-6:target ~ .image-container {
+
+	left: -2500px;
+
+  }
+
+  #slide-7:target ~ .image-container {
+
+	left: -3000px;
+
+  }
+
+  #slide-8:target ~ .image-container {
+
+	left: -3500px;
+
+  }
+
+  #slide-9:target ~ .image-container {
+
+	left: -4000px;
+
+  }
+
+  #slide-10:target ~ .image-container {
+
+	left: -4500px;
+
+  }
+
+  
+
+  .buttons {
+
+	position: relative;
+
+	top: -20px;
+
+	
+
+  }
+
+  .buttons a {
+
+	display: inline-block;
+
+	height: 15px;
+
+	width: 15px;
+
+	border-radius: 50px;
+
+	background-color: black;
+
+}
